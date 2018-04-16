@@ -3,7 +3,7 @@
  * simple native JavaScript ES6 script lets you conditionally show/hide Form/DOM element
  * @author    Awran5 <github.com/awran5>
  * @version   1.0.0
- * @license   icensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * @license   icensed under MIT (https://github.com/awran5/conditional-script/blob/master/LICENSE)
  * @copyright © 2018 Awran5. All rights reserved.
  * 
  */
