@@ -4,9 +4,11 @@ conditionalScript is a simple native JavaScript ES6 script which lets you condit
 
 This script does not requires **jQuery** though, it should work on any modern browser, If you have an issue/idea, please feel free to fork the repo or send me a push request and i'll be more than happy to push it.
 
+### [Demo & Examples](https://awran5.github.io/conditional-script/)
+
 # Usage
 
-1- Place the script before the closing Body tag for better page speed performance.
+1. Place the script before the closing Body tag for better page speed performance.
 ```html
 <script src="js/conditional-script.min.js"></script>
 ```
