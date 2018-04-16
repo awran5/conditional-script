@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+
+
+    <title>conditionalScript</title>
+</head>
+    <body>
+    <!-- Start container -->
+    <div class="container">
+        <div class="row">
+            <div class="col-10 m-auto">
+
+            <h1 class="mt-5">Hello, world!</h1>
+            <p class="lead">conditionalScript is a simple native JavaScript ES6 script which lets you conditionally show/hide Form or any other elements by using custom HTML5 attributes. conditionalScript currently works with checkboxes, radios and select lists.</p>
+            <p>This script does not requires <strong>jQuery</strong> though, it should work on any modern browser, If you have an issue/idea, please feel free to fork the repo or send me a push request and i'll be more than happy to push it.</p>
+            <div class="text-center">
+                <div class="btn-group my-5">
+                    <a class="btn btn-white border" href="https://github.com/awran5/conditional-script/"><img src="svg/github.svg" height="15" alt="github"> Github</a>
+                    <a class="btn btn-white border" href="https://raw.githubusercontent.com/awran5/conditional-script/master/conditional-script.min.js"><img src="svg/download-button.svg" height="15" alt="download-button"> Download</a>
+                    <a class="btn btn-success border" href="https://www.paypal.me/awran5"><img src="svg/paypal.svg" height="15" alt="paypal"> Donate</a>
+                </div>
+            </div>
+
+            <hr>
+            <h2>Usage:</h2>
+            <br>
+            <p class="lead">1- Place the script before the closing Body tag for better page speed performance.</p>
+<!-- start code -->
+<div class="code-highlight">
+<pre><code class="language-markup line-numbers"><xmp><script src="js/conditional-script.min.js"></script>
+</xmp></code></pre>
+</div>
+<!-- end code -->
+            <p class="lead">2. Create 2 <code>divs</code> with the same class name, you can name them whatever you like.</p>
+<!-- start code -->
+<div class="code-highlight">
+<pre><code class="language-markup line-numbers">&lt;div class="conditional-script"&gt;
+    Main Markup here...
+&lt;/div&gt;
+&lt;div class="conditional-script"&gt;
+    Conditional Markup here...
+&lt;/div&gt;</code></pre>
+</div>
+<!-- end code -->
+            <p class="lead">3. Add additional <span class="token attr-value">data-conditional-name</span> and <span class="token attr-value">data-conditional-value</span> attributes to your newly created (Conditional Markup). Please note that the <span class="token attr-value">data-conditional-name</span> attribute will target the <code>Field Name</code> attribute, so you need to set the <code>Name</code> attribute to the field in order to work properly.</p>
+<!-- start code -->
+<div class="code-highlight">
+<pre><code class="language-javascript line-numbers">&lt;div class="conditional-script"&gt;
+    &lt;input type="..." name="exampleName" value="main field value"&gt;
+&lt;/div&gt;
+&lt;div class="conditional-script"&gt;
+    Conditional Markup .. data-conditional-name="exampleName" data-conditional-value="main field value"
+&lt;/div&gt;</code></pre>
+</div>
+<!-- end code -->
+            <p class="lead">Also, <span class="token attr-value">data-conditional-value</span> accepts more than 1 value but they must be separated by <strong>comma</strong> and <strong>space</strong> (", ") for example:</p>
+<!-- start code -->
+<div class="code-highlight">
+<pre><code class="language-javascript line-numbers">data-conditional-value="value 1, value 3"</code></pre>
+</div>
+<!-- end code -->
+            <h3>You final markup should look like this:</h3>
+            <p>Radio input example:</p>
+<!-- start code -->
+<div class="code-highlight">
+<pre><code class="language-markup line-numbers">&lt;!-- Main Div - Radio buttons Bootstrap markup example --&gt;
+&lt;div class="form-group"&gt;
+    &lt;div class="form-check"&gt;
+        &lt;input class="form-check-input" type="radio" name="exampleRadioName" id="exampleRadio1" value="option1"&gt;
+        &lt;label class="form-check-label" for="exampleRadio1"&gt;yes&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="form-check"&gt;
+        &lt;input class="form-check-input" type="radio" name="exampleRadioName" id="exampleRadio2" value="option2"&gt;
+        &lt;label class="form-check-label" for="exampleRadio2"&gt;no&lt;/label&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Conditional Div --&gt;
+&lt;div class="form-group"&gt;
+  &lt;label for="formGroupExampleInput"&gt;Show on radio check with value Yes and hide if No&lt;/label&gt;
+  &lt;input type="text" class="form-control" id="exampleRadio" data-conditional-name="exampleRadioName" data-conditional-value="option1"&gt;
+&lt;/div&gt;
+</code></pre>
+</div>
+<!-- end code -->
+            <!-- start examples -->
+            <hr class="my-5">
+            <h2 class="display-5 text-center">Real Examples</h2>
+            <p class="lead text-center">All Examples build with Bootstrap 4 form style</p>
+            <form class="my-5">
+                <div class="form-group">
+                    <label for="exampleSelect">Example select, note that it works with more than value. Will show on value 2 or 4 selected</label>
+                    <select class="form-control" id="exampleSelect" name="exampleSelect">
+                        <option>value 1</option>
+                        <option>value 2</option>
+                        <option>value 3</option>
+                        <option>value 4</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleSelect2">Value 2 or 4 is selected</label>
+                    <select class="form-control" id="exampleSelect2" data-conditional-name="exampleSelect" data-conditional-value="value 2, value 4">
+                        <option>new value 1</option>
+                        <option>new value 2</option>
+                        <option>new value 3</option>
+                    </select>
+                </div>
+<!-- start code -->
+<p class="small mute">Code</p>
+<div class="code-highlight">
+<pre><code class="language-markup line-numbers">&lt;!-- main field --&gt;
+&lt;div class="form-group"&gt;
+    &lt;label for="exampleSelect"&gt;Example select, will show on value 2 or 4 selected&lt;/label&gt;
+    &lt;select class="form-control" id="exampleSelect" name="exampleSelect"&gt;
+        &lt;option&gt;value 1&lt;/option&gt;
+        &lt;option&gt;value 2&lt;/option&gt;
+        &lt;option&gt;value 3&lt;/option&gt;
+        &lt;option&gt;value 4&lt;/option&gt;
+    &lt;/select&gt;
+&lt;/div&gt;
+&lt;!-- conditional Field --&gt;
+&lt;div class="form-group"&gt;
+    &lt;label for="exampleSelect2"&gt;Value 2 or 4 is selected&lt;/label&gt;
+    &lt;select class="form-control" id="exampleSelect2" data-conditional-name="exampleSelect" data-conditional-value="value 2, value 4"&gt;
+        &lt;option&gt;new value 1&lt;/option&gt;
+        &lt;option&gt;new value 2&lt;/option&gt;
+        &lt;option&gt;new value 3&lt;/option&gt;
+    &lt;/select&gt;
+&lt;/div&gt;
+</code></pre>
+</div>
+<!-- end code -->
+
+                <hr class="my-5">
+                <div class="form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="optional" id="exampleCheck" name="exampleCheck">
+                        <label class="form-check-label" for="exampleCheck">
+                            Default checkbox will show if checked.
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label for="formGroupExampleInput">Show on check</label>
+                  <input type="text" class="form-control" id="exampleCheckbox" data-conditional-name="exampleCheck" data-conditional-value="optional">
+                </div>
+
+<!-- start code -->
+<p class="small mute">Code</p>
+<div class="code-highlight">
+<pre><code class="language-markup line-numbers">&lt;!-- main field --&gt;
+&lt;div class="form-group"&gt;
+    &lt;div class="form-check"&gt;
+        &lt;input class="form-check-input" type="checkbox" value="optional" id="exampleCheck" name="exampleCheck"&gt;
+        &lt;label class="form-check-label" for="exampleCheck"&gt;
+            Default checkbox will show if checked.
+        &lt;/label&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- conditional Field --&gt;
+&lt;div class="form-group"&gt;
+  &lt;label for="formGroupExampleInput"&gt;Show on check&lt;/label&gt;
+  &lt;input type="text" class="form-control" id="exampleCheckbox" data-conditional-name="exampleCheck" data-conditional-value="optional"&gt;
+&lt;/div&gt;</code></pre>
+</div>
+<!-- end code -->
+
+                <hr class="my-5">
+                <p class="lead">Radio field, Show if value Yes checked</p>
+                <div class="form-group">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="exampleRadioName" id="exampleRadio1" value="option1">
+                        <label class="form-check-label" for="exampleRadio1">yes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="exampleRadioName" id="exampleRadio2" value="option2" checked>
+                        <label class="form-check-label" for="exampleRadio2">no</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label for="formGroupExampleInput">Show on radio check with value Yes and hide if No</label>
+                  <input type="text" class="form-control" id="exampleRadio" data-conditional-name="exampleRadioName" data-conditional-value="option1">
+                </div>
+
+<!-- start code -->
+<p class="small mute">Code</p>
+<div class="code-highlight">
+<pre><code class="language-markup line-numbers">&lt;!-- main field --&gt;
+&lt;div class="form-group"&gt;
+    &lt;div class="form-check form-check-inline"&gt;
+        &lt;input class="form-check-input" type="radio" name="exampleRadioName" id="exampleRadio1" value="option1"&gt;
+        &lt;label class="form-check-label" for="exampleRadio1"&gt;yes&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="form-check form-check-inline"&gt;
+        &lt;input class="form-check-input" type="radio" name="exampleRadioName" id="exampleRadio2" value="option2"&gt;
+        &lt;label class="form-check-label" for="exampleRadio2"&gt;no&lt;/label&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- conditional Field --&gt;
+&lt;div class="form-group"&gt;
+  &lt;label for="exampleInput"&gt;Show on radio check with value Yes and hide if No&lt;/label&gt;
+  &lt;input type="text" class="form-control" id="exampleRadio" data-conditional-name="exampleRadioName" data-conditional-value="option1"&gt;
+&lt;/div&gt;</code></pre>
+</div>
+<!-- end code -->
+                <hr class="my-5">
+                <p class="lead">Another example with multiple conditions:</p>
+                <div class="form-group">
+                    <label class="control-label">
+                        How would you rate your experience with this script?
+                    </label>
+                    <div class="form-check">
+                        <input class="form-check-input" name="rating" type="radio" value="Bad"/>
+                        <label class="form-check-label">Bad</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" name="rating" type="radio" value="Fair"/>
+                        <label class="form-check-label">Fair</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" name="rating" type="radio" value="Good"/>
+                        <label class="form-check-label">Good</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" name="rating" type="radio" value="Excellent"/>
+                        <label class="form-check-label">Excellent</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Sorry to hear that. What went wrong?</label>
+                    <textarea class="form-control" id="Textarea1" rows="3" data-conditional-name="rating" data-conditional-value="Bad"></textarea>
+                </div>
+                <div class="form-group">
+                    <p class="control-label" for="testimonial">
+                        Wonderful!  We're so glad to hear that.  Would you be willing to write a customer comment for our website?
+                    </p>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" value="yes" name="radioinline" />
+                        <label class="form-check-label">Sure!</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" value="no" name="radioinline"/> 
+                        <label class="form-check-label">I'd rather not.</label>
+                    </div>
+                    <div data-conditional-name="rating" data-conditional-value="Excellent"></div>
+                </div>
+<!-- start code -->
+<p class="small mute">Code</p>
+<div class="code-highlight">
+<pre><code class="language-markup line-numbers">&lt;!-- main field --&gt;
+&lt;div class="form-group"&gt;
+    &lt;label class="control-label"&gt;
+        How would you rate your experience with this script?
+    &lt;/label&gt;
+    &lt;div class="form-check"&gt;
+        &lt;input class="form-check-input" name="rating" type="radio" value="Bad"/&gt;
+        &lt;label class="form-check-label"&gt;Bad&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="form-check"&gt;
+        &lt;input class="form-check-input" name="rating" type="radio" value="Fair"/&gt;
+        &lt;label class="form-check-label"&gt;Fair&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="form-check"&gt;
+        &lt;input class="form-check-input" name="rating" type="radio" value="Good"/&gt;
+        &lt;label class="form-check-label"&gt;Good&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="form-check"&gt;
+        &lt;input class="form-check-input" name="rating" type="radio" value="Excellent"/&gt;
+        &lt;label class="form-check-label"&gt;Excellent&lt;/label&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- conditional Field --&gt;
+&lt;div class="form-group"&gt;
+    &lt;label for="exampleFormControlTextarea1"&gt;Sorry to hear that. What went wrong?&lt;/label&gt;
+    &lt;textarea class="form-control" id="Textarea1" rows="3" data-conditional-name="rating" data-conditional-value="Bad"&gt;&lt;/textarea&gt;
+&lt;/div&gt;
+&lt;div class="form-group"&gt;
+    &lt;p class="control-label" for="testimonial"&gt;
+        Wonderful!  We're so glad to hear that.  Would you be willing to write a customer comment for our website?
+    &lt;/p&gt;
+    &lt;div class="form-check form-check-inline"&gt;
+        &lt;input class="form-check-input" type="radio" value="yes" /&gt;
+        &lt;label class="form-check-label"&gt;Sure!&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="form-check form-check-inline"&gt;
+        &lt;input class="form-check-input" type="radio" value="no" /&gt; 
+        &lt;label class="form-check-label"&gt;I'd rather not.&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div data-conditional-name="rating" data-conditional-value="Excellent"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</div>
+<!-- end code -->
+                <hr class="my-5">
+                <p class="lead">Another example, you can show your custom HTML stracture</p>
+                <div class="form-group">
+                    <label class="control-label">
+                        What do you think is hiding?
+                    </label>
+                    <div class="form-check">
+                        <input class="form-check-input" name="custom" type="radio" value="show"/>
+                        <label class="form-check-label">Show</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" name="custom" type="radio" value="hide" checked />
+                        <label class="form-check-label">Hide</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h3>Hello I'm just a H3 Tag!</h3>
+                    <p>I'm a Paragraph</p>
+                    <div data-conditional-name="custom" data-conditional-value="show"></div>
+                </div>
+<p class="small mute">Code</p>
+<!-- start code -->
+<div class="code-highlight">
+<pre><code class="language-markup line-numbers">&lt;div class="form-group"&gt;
+    &lt;label class="control-label"&gt;
+        What do you think is hiding?
+    &lt;/label&gt;
+    &lt;div class="form-check"&gt;
+        &lt;input class="form-check-input" name="custom" type="radio" value="show"/&gt;
+        &lt;label class="form-check-label"&gt;Show&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="form-check"&gt;
+        &lt;input class="form-check-input" name="custom" type="radio" value="hide"/&gt;
+        &lt;label class="form-check-label"&gt;Hide&lt;/label&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="form-group"&gt;
+    &lt;h3&gt;Hello I'm just a H3 Tag!&lt;/h3&gt;
+    &lt;p&gt;I'm a Paragraph&lt;/p&gt;
+    &lt;div data-conditional-name="custom" data-conditional-value="show"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<!-- end code -->
+
+                <hr class="my-5">
+                <p class="lead">If you like to have swich field style simply add the code below</p>
+                
+                <div class="form-group">
+                    <div class="switch-field">
+                        <p class="switch-title">Is this awesome?</p>
+                        <input type="radio" id="switch_left" name="exampleSwitch" value="yes"/>
+                        <label for="switch_left">Yes</label>
+                        <input type="radio" id="switch_right" name="exampleSwitch" value="no" checked/>
+                        <label for="switch_right">No</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <p class="lead" data-conditional-name="exampleSwitch" data-conditional-value="yes">Sure</p>
+                </div>
+                
+                <hr>
+<!-- start code -->
+<p>HTML</p>
+<div class="code-highlight">
+<pre><code class="language-markup line-numbers">&lt;!-- switch field --&gt;
+&lt;div class="form-group"&gt;
+    &lt;div class="switch-field"&gt;
+        &lt;p class="switch-title"&gt;Is this awesome?&lt;/p&gt;
+        &lt;input type="radio" id="switch_left" name="exampleSwitch" value="yes"/&gt;
+        &lt;label for="switch_left"&gt;Yes&lt;/label&gt;
+        &lt;input type="radio" id="switch_right" name="exampleSwitch" value="no" checked/&gt;
+        &lt;label for="switch_right"&gt;No&lt;/label&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="form-group"&gt;
+    &lt;p class="lead" data-conditional-name="exampleSwitch" data-conditional-value="yes"&gt;Sure&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+</div>
+<!-- end code -->
+<!-- start code -->
+<hr>
+<p>CSS</p>
+<div class="code-highlight">
+<pre><code class="language-css line-numbers">/* switch field */
+.switch-field {
+  padding-right: 0;
+  margin: 0;
+  line-height: inherit;
+}
+
+.switch-field input {
+  display: none;
+}
+
+.switch-field label {
+  display: inline-block;
+  float: left;
+  background-color: #e4e4e4;
+  padding: .25rem .75rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-transition: all 0.1s ease-in-out;
+  transition:         all 0.1s ease-in-out;
+}
+
+.switch-field label:hover {
+  cursor: pointer;
+}
+
+.switch-field input:checked + label {
+  color: #fff;
+  background-color: #0073aa;
+}
+
+.switch-field label:first-of-type {
+  border-radius: .25rem 0 0 .25rem;
+}
+
+.switch-field label:last-of-type {
+  border-radius: 0 .25rem .25rem 0;
+}
+
+.switch-field:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</code></pre>
+</div>
+<!-- end code -->
+            <!-- start examples -->  
+            <!-- Footer -->
+            <hr class="mt-5">
+            <footer class="docs-footer small muted" role="contentinfo">
+            <div class="footer-info text-center">
+                <ul class="bs-docs-footer-links list-inline">
+                    <li class="list-inline-item">Currently v1.0.0</li>
+                    <li class="list-inline-item"> - </li>
+                    <li class="list-inline-item"><a href="https://github.com/abukwaik/Radix" target="_blank" title="GitHub">GitHub</a></li>
+                    <li class="list-inline-item"> - </li>
+                    <li class="list-inline-item"><a href="https://github.com/abukwaik/Radix/issues" target="_blank" title="Issues">Issues</a></li>
+                    <li class="list-inline-item"> - </li>
+                    <li class="list-inline-item"><a href="donate.html" title="Donate">Donate</a></li>
+                </ul>
+            </div>
+            <div class="copyright pt-4">
+                Copyright © 2018 <a href="http://radixtheme.com/" title="Radix Team">awran5</a>. All Rights Reserved.
+            </div>
+            </footer>
+
+        </div>
+    </div>
+</div>
+<!-- End container -->
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/prism.js"></script>
+<!-- <script src="js/conditional-script.js"></script> -->
+<script src="js/conditional-script.js"></script>
+    
+</body>
+</html>
