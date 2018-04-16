@@ -6,11 +6,11 @@ This script does not requires **jQuery** though, it should work on any modern br
 
 # Usage
 
-1. Place the script before the closing Body tag for better page speed performance.
+1- Place the script before the closing Body tag for better page speed performance.
 ```html
 <script src="js/conditional-script.min.js"></script>
 ```
-2. Create 2 **divs** with the same class name, you can name them whatever you like.
+2- Create 2 **divs** with the same class name, you can name them whatever you like.
 ```html
 <div class="conditional-script">
     Main Markup here...
@@ -19,7 +19,7 @@ This script does not requires **jQuery** though, it should work on any modern br
     Conditional Markup here...
 </div>
 ```
-3. Add additional `data-conditional-name` and `data-conditional-value` attributes to your newly created (Conditional Markup). Please note that the `data-conditional-name` attribute will target the **Field Name** attribute, so you need to set the Name attribute to the field in order to work properly.
+3. Add additional **data-conditional-name** and **data-conditional-value** attributes to your newly created (Conditional Markup). Please note that the data-conditional-name attribute will target the **Field Name** attribute, so you need to set the Name attribute to the field in order to work properly.
 ```html
 <div class="conditional-script">
     <input type="..." name="exampleName" value="main field value">
@@ -28,7 +28,7 @@ This script does not requires **jQuery** though, it should work on any modern br
     Conditional Markup .. data-conditional-name="exampleName" data-conditional-value="main field value"
 </div>
 ```
-Also, `data-conditional-value` accepts more than 1 value but they must be separated by **comma** followed by **space** (", ") for example:
+Also, **data-conditional-value** accepts more than 1 value but they must be separated by **comma** followed by **space** (", ") for example:
 ```php
 data-conditional-value="value 1, value 3"
 ```
