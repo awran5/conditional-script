@@ -21,7 +21,7 @@ This script does not requires **jQuery** though, it should work on any modern br
     Conditional Markup here...
 </div>
 ```
-3. Add additional `data-conditional-name` and `data-conditional-value` attributes to your newly created (Conditional Markup). Please note that the `data-conditional-name attribute` will target the **Field Name** attribute, so you need to set the Name attribute to the field in order to work properly.
+3. Add additional `data-conditional-name` and `data-conditional-value` attributes to your newly created (Conditional Markup). Please note that the `data-conditional-name` attribute will target the **Field Name** attribute, so you need to set the Name attribute to the field in order to work properly.
 ```html
 <div class="conditional-script">
     <input type="..." name="exampleName" value="main field value">
