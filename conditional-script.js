@@ -14,8 +14,8 @@
 
     // select by data attribute 
     document.querySelectorAll('[data-conditional-name]').forEach( (element) => {
-        const condName  = element.dataset.conditionalName,
-        condValue       = element.dataset.conditionalValue,
+        const condName  = element.getAttribute('data-conditional-name'),
+        condValue       = element.getAttribute('data-conditional-value'),
         condParent      = element.parentNode;
 
         // Check if value is matching
