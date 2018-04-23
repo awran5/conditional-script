@@ -41,7 +41,7 @@
             }
 
             // Radio field
-            else if( "radio" === field.type ) {
+            else if( "radio" === field.type && field.checked ) {
 
                 // Hide the row if the value doesn't match and not checked
                 if( !valueMatch( field.value )  ) 
