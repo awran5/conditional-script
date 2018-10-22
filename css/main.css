@@ -307,6 +307,13 @@ body {
   display: table;
   clear: both;
 }
+<<<<<<< HEAD
 .form-check-input {
 	cursor: pointer;
 }
+=======
+
+.form-check-input {
+	cursor: pointer;
+}
+>>>>>>> 183f383c42522dfbc8be88cf8fee1e3e7ecbe6df
