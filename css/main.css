@@ -307,3 +307,6 @@ body {
   display: table;
   clear: both;
 }
+.form-check-input {
+	cursor: pointer;
+}
