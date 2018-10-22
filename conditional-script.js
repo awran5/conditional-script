@@ -1,77 +1,51 @@
 /**
  * conditionalScript
- * simple native JavaScript ES6 script lets you conditionally show/hide Form/DOM element
+ * @description  simple native JavaScript ES6 script lets you conditionally show/hide Form/DOM element
  * @author    Awran5 <github.com/awran5>
- * @version   1.0.0
- * @license   icensed under MIT (https://github.com/awran5/conditional-script/blob/master/LICENSE)
+ * @version   1.1.0
+ * @license   under MIT (https://github.com/awran5/conditional-script/blob/master/LICENSE)
  * @copyright © 2018 Awran5. All rights reserved.
  * 
  */
 
-( () => {
-
-    "use strict"
-
-    // select by data attribute 
-    document.querySelectorAll('[data-conditional-name]').forEach( (element) => {
-        const condName  = element.getAttribute('data-conditional-name'),
-        condValue       = element.getAttribute('data-conditional-value'),
-        condParent      = element.parentNode;
-
-        // Check if value is matching
-        function valueMatch(value) {
-            return condValue.includes(value);
+class conditionalScript {
+    constructor() {
+        // Select all elements that have data-conditional-name attribute
+        const elements = document.querySelectorAll('[data-conditional-name]');
+        // Loop through elements
+        for (const element of elements) {
+            // Get names, values and the conditional fields
+            const condName = element.dataset.conditionalName;
+            const condValue = element.dataset.conditionalValue;
+            const condParent = element.parentNode;
+            // Select all names
+            const names = document.querySelectorAll(`[name="${condName}"]`);
+            // Function return true if values is matched 
+            const valueMatch = v => condValue.includes(v);
+            // Shorthand functions show/hide elements
+            const hide = e => e.style.display = 'none';
+            const show = e => e.style.display = '';
+            // Loop through names
+            for (const name of names) {
+                // Select, Radio fields have same conditional
+                if ("select-one" === name.type || "radio" === name.type) {
+                    // Hide the conditional field if the value doesn't match
+                    if (!valueMatch(name.value))
+                        hide(condParent);
+                    // Check on change to show / hide
+                    name.addEventListener('change', e => valueMatch(e.target.value) ? show(condParent) : hide(condParent));
+                }
+                // Checkbox field
+                else if ("checkbox" === name.type) {
+                    // Hide the conditional field if the value doesn't match and not checked
+                    if (!name.checked)
+                        hide(condParent);
+                    // Check on change
+                    name.addEventListener('change', e => e.target.checked ? show(condParent) : hide(condParent));
+                }
+            }
         }
-
-        // Select the field by name and loob through
-        document.querySelectorAll('[name="' + condName + '"]').forEach( (field) => {
-
-            // Select field
-            if( "select-one" === field.type ) {
-
-                // Hide the row if the value doesn't match
-                if( !valueMatch( field.value ) ) 
-                    condParent.style.display = 'none';
-                
-                // Check on change
-                field.addEventListener('change', (event) => {
-
-                    ( valueMatch( event.target.value ) ) ? condParent.style.display = 'block' : condParent.style.display = 'none';
-                });
-            }
-
-            // Radio field
-            else if( "radio" === field.type && field.checked ) {
-
-                // Hide the row if the value doesn't match and not checked
-                if( !valueMatch( field.value )  ) 
-                    condParent.style.display = 'none';
-
-                // Check on change
-                field.addEventListener('change', (event) => {          
-
-                    ( valueMatch( event.target.value ) ) ? condParent.style.display = 'block' : condParent.style.display = 'none';
-                });
-
-            }
-
-            // Checkbox field
-            else if( "checkbox" === field.type ) {    
-
-                // Hide the row if the value doesn't match and not checked
-                if( !field.checked ) 
-                    condParent.style.display = 'none';
-
-                // Check on change
-                field.addEventListener('change', (event) => {
-
-                    ( event.target.checked ) ? condParent.style.display = 'block' : condParent.style.display = 'none';
-                });
-            }
-
-        });
-        
-    });
-
-})();
-
+    }
+}
+// Run the class!
+const conditional = new conditionalScript();
