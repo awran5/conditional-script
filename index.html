@@ -18,8 +18,8 @@
         <div class="row">
             <div class="col-10 m-auto">
 
-                <h1 class="mt-5">Hello, world!</h1>
-                <p class="lead">conditionalScript is a simple native JavaScript ES6 script which lets you conditionally show/hide Form or any other elements by using custom HTML5 attributes. conditionalScript currently works with checkboxes, radios and select lists.</p>
+                <h1 class="mt-5 pt-4">conditionalScript</h1>
+                <p class="lead pt-2">Simple native JavaScript ES6 script lets you conditionally show/hide Form elements or any other DOM elements by using custom HTML5 attributes. conditionalScript currently support <strong>checkboxes</strong>, <strong>radios</strong> and <strong>select lists.</strong></p>
                 <p>This script does not requires <strong>jQuery</strong> though, it should work on any modern browser, If you have an issue/idea, please feel free to fork the repo or send me a push request and i'll be more than happy to push it.</p>
                 <div class="text-center">
                     <div class="btn-group my-5">
@@ -30,16 +30,16 @@
                 </div>
 
                 <hr>
-                <h2>Usage:</h2>
+                <h3>Usage:</h3>
                 <br>
-                <p class="lead">1. Place the script before the closing Body tag for better page speed performance.</p>
+                <p>1. Place the script before the closing Body tag for better page speed performance.</p>
 <!-- start code -->
 <div class="code-highlight">
 <pre><code class="language-markup line-numbers">&lt;script src="js/conditional-script.min.js"&gt;&lt;/script&gt;
 </code></pre>
 </div>
 <!-- end code -->
-            <p class="lead">2. Create 2 <code>divs</code> with the same class name, you can name them whatever you like.</p>
+            <p>2. Create 2 <code>divs</code> with the same class name, you can name them whatever you like.</p>
 <!-- start code -->
 <div class="code-highlight">
 <pre><code class="language-markup line-numbers">&lt;div class="conditional-script"&gt;
@@ -50,7 +50,7 @@
 &lt;/div&gt;</code></pre>
 </div>
 <!-- end code -->
-            <p class="lead">3. Add additional <span class="token attr-value">data-conditional-name</span> and <span class="token attr-value">data-conditional-value</span> attributes to your newly created (Conditional Markup). Please note that the <span class="token attr-value">data-conditional-name</span> attribute will target the <code>Field Name</code> attribute, so you need to set the <code>Name</code> attribute to the field in order to work properly.</p>
+            <p>3. Add additional <span class="token attr-value">data-conditional-name</span> and <span class="token attr-value">data-conditional-value</span> attributes to your newly created (Conditional Markup). Please note that the <span class="token attr-value">data-conditional-name</span> attribute will target the <code>Field Name</code> attribute, so you need to set the <code>Name</code> attribute to the field in order to work properly.</p>
 <!-- start code -->
 <div class="code-highlight">
 <pre><code class="language-javascript line-numbers">&lt;div class="conditional-script"&gt;
@@ -61,7 +61,7 @@
 &lt;/div&gt;</code></pre>
 </div>
 <!-- end code -->
-            <p class="lead">Also, <span class="token attr-value">data-conditional-value</span> accepts more than 1 value but they must be separated by <strong>comma</strong> and <strong>space</strong> (", ") for example:</p>
+            <p>Also, <span class="token attr-value">data-conditional-value</span> accepts more than 1 value but they must be separated by <strong>comma</strong> and <strong>space</strong> (", ") for example:</p>
 <!-- start code -->
 <div class="code-highlight">
 <pre><code class="language-javascript line-numbers">data-conditional-value="value 1, value 3"</code></pre>
@@ -92,10 +92,11 @@
 <!-- end code -->
             <!-- start examples -->
             <hr class="my-5">
-            <h2 class="display-5 text-center">Real Examples</h2>
-            <p class="lead text-center">All Examples build with Bootstrap 4 form style</p>
+            <h2 class="display-5 text-center">Examples</h2>
+            <p class="text-center small text-muted">All Examples build with Bootstrap 4 form style</p>
+            <h4>Select List</h4>
             <div class="form-group">
-                <label for="exampleSelect">Example select, note that it works with more than value. Will show on value 2 or 4 selected</label>
+                <label for="exampleSelect">Example select, note that it works with more than value. Will show when value 2 or 4 selected</label>
                 <select class="form-control" id="exampleSelect" name="exampleSelect">
                     <option>value 1</option>
                     <option>value 2</option>
@@ -104,7 +105,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="exampleSelect2">Value 2 or 4 is selected</label>
+                <label for="exampleSelect2">Bingo! Value 2 or 4 is selected</label>
                 <select class="form-control" id="exampleSelect2" data-conditional-name="exampleSelect" data-conditional-value="value 2, value 4">
                     <option>new value 1</option>
                     <option>new value 2</option>
@@ -138,16 +139,17 @@
 <!-- end code -->
 
                 <hr class="my-5">
+                <h4>Checkbox</h4>
                 <div class="form-group">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="optional" id="exampleCheck" name="exampleCheck">
                         <label class="form-check-label" for="exampleCheck">
-                            Default checkbox will show if checked.
+                            Default checkbox, will show if checked.
                         </label>
                     </div>
                 </div>
                 <div class="form-group">
-                  <label for="formGroupExampleInput">Show on check</label>
+                  <label for="formGroupExampleInput">Checkbox is Checked!</label>
                   <input type="text" class="form-control" id="exampleCheckbox" data-conditional-name="exampleCheck" data-conditional-value="optional">
                 </div>
 
@@ -172,7 +174,8 @@
 <!-- end code -->
 
                 <hr class="my-5">
-                <p class="lead">Radio field, Show if value Yes checked</p>
+                <h4>Radio field</h4>
+                <p>Will show if "Yes" checked</p>
                 <div class="form-group">
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="exampleRadioName" id="exampleRadio1" value="option1">
@@ -341,7 +344,8 @@
 <!-- end code -->
 
                 <hr class="my-5">
-                <p class="lead">If you like to have swich field style simply add the code below</p>
+                <h4>Switch button</h4>
+                <p class="lead">If you like to have switch field style simply add the code below</p>
                 
                 <div class="form-group">
                     <div class="switch-field">
@@ -353,7 +357,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <p class="lead" data-conditional-name="exampleSwitch" data-conditional-value="yes">Sure</p>
+                    <h4 data-conditional-name="exampleSwitch" data-conditional-value="yes">Sure</h4>
                 </div>
                 
                 <hr>
@@ -429,23 +433,26 @@
             <!-- start examples -->  
             <!-- Footer -->
             <hr class="mt-5">
-            <footer class="docs-footer small muted" role="contentinfo">
-            <div class="footer-info text-center">
-                <ul class="bs-docs-footer-links list-inline">
-                    <li class="list-inline-item">Currently v1.0.0</li>
-                    <li class="list-inline-item"> - </li>
-                    <li class="list-inline-item"><a href="https://github.com/awran5/conditional-script/" target="_blank" title="GitHub">GitHub</a></li>
-                    <li class="list-inline-item"> - </li>
-                    <li class="list-inline-item"><a href="https://github.com/awran5/conditional-script/issues" target="_blank" title="Issues">Issues</a></li>
-                    <li class="list-inline-item"> - </li>
-                    <li class="list-inline-item"><a href="https://www.paypal.me/awran5" title="Donate">Donate</a></li>
-                </ul>
-            </div>
-            <div class="copyright pt-4">
-                Copyright © 2018 <a href="https://github.com/awran5/" title="awran5">awran5</a>. All Rights Reserved.
-            </div>
-            </footer>
-
+                <footer class="docs-footer small text-muted" role="contentinfo">
+                    <div class="footer-info text-center">
+                        <ul class="bs-docs-footer-links list-inline">
+                            <li class="list-inline-item">v1.1.0</li>
+                            <li class="list-inline-item"> - </li>
+                            <li class="list-inline-item"><a href="https://github.com/awran5/conditional-script/"
+                                    target="_blank" title="GitHub">GitHub</a></li>
+                            <li class="list-inline-item"> - </li>
+                            <li class="list-inline-item"><a href="https://github.com/awran5/conditional-script/issues"
+                                    target="_blank" title="Issues">Issues</a></li>
+                            <li class="list-inline-item"> - </li>
+                            <li class="list-inline-item"><a href="https://www.paypal.me/awran5" title="Donate">Donate</a></li>
+                        </ul>
+                        <div class="copyright mb-2">
+                            Copyright © 2018 <a href="https://github.com/awran5/" title="awran5">awran5</a>. All
+                            Rights
+                            Reserved.
+                        </div>
+                    </div>
+                </footer>
         </div>
     </div>
 </div>
@@ -458,7 +465,7 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/prism.js"></script>
 <!-- <script src="js/conditional-script.js"></script> -->
-<script src="js/conditional-script.min.js"></script>
+<script src="js/conditional-script.js"></script>
     
 </body>
 </html>
