@@ -48,8 +48,4 @@ class conditionalScript {
     }
 }
 // Run the class!
-<<<<<<< HEAD
 const conditional = new conditionalScript();
-=======
-const conditional = new conditionalScript();
->>>>>>> 183f383c42522dfbc8be88cf8fee1e3e7ecbe6df
